@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.climbachiya.speedtestdemo.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Speed Test"
+        android:gravity="center_horizontal"
+        style="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:id="@+id/textView" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+        android:id="@+id/view" />
+
+    <Button
+        style="?android:attr/buttonStyle"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="Start Download"
+        android:id="@+id/button_begin_download"
+        android:onClick="startDownloadSpeed"
+        android:layout_below="@+id/view"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="5dp"
+        />
+
+    <Button
+        style="?android:attr/buttonStyle"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="Start Upload"
+        android:id="@+id/button_begin_upload"
+        android:onClick="startUploadSpeed"
+        android:layout_alignTop="@+id/button_begin_download"
+        android:layout_centerHorizontal="true"
+         />
+    <Button
+        style="?android:attr/buttonStyle"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="Start\nAll Test"
+        android:id="@+id/button_begin_all"
+        android:onClick="startSpeedTestAll"
+        android:layout_alignTop="@+id/button_begin_download"
+        android:layout_alignRight="@+id/view"
+        android:layout_alignEnd="@+id/view"
+        android:layout_marginRight="5dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/text_progress"
+        android:gravity="center"
+        android:layout_below="@+id/progress"
+        android:layout_alignLeft="@+id/button_begin_download"
+        android:layout_alignStart="@+id/button_begin_download" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/text_progress"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/text_response_download"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-condensed"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/text_response_upload"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:fontFamily="sans-serif-condensed"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+    <!--<TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/text_response_download"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/text_progress"
+        android:fontFamily="sans-serif-condensed"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/text_response_upload"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/text_response_download"
+        android:fontFamily="sans-serif-condensed"
+        />-->
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+        android:layout_below="@+id/button_begin_download"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp" />
+</RelativeLayout>

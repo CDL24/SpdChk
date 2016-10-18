@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/coordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Speed Test"
+            android:gravity="center_horizontal"
+            style="@android:style/TextAppearance.DeviceDefault.Medium"
+            android:id="@+id/textView" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorAccent"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp"
+            android:id="@+id/view" />
+
+        <Button
+            style="?android:attr/buttonStyle"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Start Download"
+            android:id="@+id/button_begin_download"
+            android:onClick="startDownloadSpeed"
+            android:layout_below="@+id/view"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="5dp"
+            />
+
+        <Button
+            style="?android:attr/buttonStyle"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Start Upload"
+            android:id="@+id/button_begin_upload"
+            android:onClick="startUploadSpeed"
+            android:layout_alignTop="@+id/button_begin_download"
+            android:layout_centerHorizontal="true"
+            />
+        <Button
+            style="?android:attr/buttonStyle"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Start\nAll Test"
+            android:id="@+id/button_begin_all"
+            android:onClick="startSpeedTestAll"
+            android:layout_alignTop="@+id/button_begin_download"
+            android:layout_alignRight="@+id/view"
+            android:layout_alignEnd="@+id/view"
+            android:layout_marginRight="5dp" />
+
+        <pl.pawelkleczkowski.customgauge.CustomGauge
+            android:id="@+id/gauge3"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            app:gaugeEndValue="100"
+            app:gaugePointEndColor="@color/md_cyan_A700"
+            app:gaugePointStartColor="@color/md_red_500"
+            app:gaugeStartAngel="180"
+            app:gaugeStartValue="0"
+            app:gaugeStrokeCap="BUTT"
+            app:gaugeStrokeColor="@color/md_grey_400"
+            app:gaugeStrokeWidth="20dp"
+            app:gaugeSweepAngel="180"
+            app:gaugeDividerSize="1"
+            app:gaugeDividerColor="@color/md_yellow_500"
+            app:gaugeDividerStep="10"
+            app:gaugeDividerDrawFirst="false"
+            app:gaugeDividerDrawLast="true"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/text_progress"
+            android:gravity="center"
+            android:text="00"
+            android:padding="8dp"
+            android:layout_alignTop="@+id/gauge3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="47dp" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:background="#ecf0f1"
+        android:minHeight="350dp"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_vertical_margin"
+        app:behavior_peekHeight="60dp"
+        app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+        <TextView
+            android:id="@+id/sheetTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Result"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:gravity="center_horizontal"
+            android:drawableLeft="@drawable/ic_upload_download"
+            android:drawableRight="@drawable/ic_upload_download"
+            android:layout_gravity="center_horizontal"
+            android:padding="5dp"
+            android:drawablePadding="5dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/text_response_download"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-condensed"
+            android:drawableLeft="@drawable/ic_download"
+            android:visibility="invisible" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/text_response_upload"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:fontFamily="sans-serif-condensed"
+            android:drawableLeft="@drawable/ic_upload"
+            android:visibility="invisible" />
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:text="sheet_more_text"/>
+        </LinearLayout>-->
+
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
